@@ -238,7 +238,7 @@ function createSqlData(config, command) {
 
   var data = new SqlData(DATABASE_VERS, DRIVER_VERS, config.user,
     config.host + ':' + config.port + '/' + config.database,
-    commandType);
+    commandType, command.text);
 
   return data;
 }

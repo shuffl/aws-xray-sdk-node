@@ -5,13 +5,14 @@
  * @param {string} driverVer - The version on the database driver (user supplied).
  * @param {string} user - The user associated to the database call.
  * @param {string} queryType - The SQL query type.
+ * @param {string} sanitizedQuery - The SQL query.
  */
 
-function SqlData(databaseVer, driverVer, user, url, queryType) {
-  this.init(databaseVer, driverVer, user, url, queryType);
+function SqlData(databaseVer, driverVer, user, url, queryType, sanitizedQuery) {
+  this.init(databaseVer, driverVer, user, url, queryType, sanitizedQuery);
 }
 
-SqlData.prototype.init = function init(databaseVer, driverVer, user, url, queryType) {
+SqlData.prototype.init = function init(databaseVer, driverVer, user, url, queryType, sanitizedQuery) {
   if (databaseVer)
     this.database_version = databaseVer;
 
@@ -23,6 +24,7 @@ SqlData.prototype.init = function init(databaseVer, driverVer, user, url, queryT
 
   this.url = url;
   this.user = user;
+  this.sanitized_query = sanitizedQuery;
 };
 
 module.exports = SqlData;
